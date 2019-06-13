@@ -1,6 +1,9 @@
-// Import stylesheets
-import './style.css';
+// Import css
+import './css/style.css';
+import './css/form.css';
 
-// Write TypeScript code!
-const appDiv: HTMLElement = document.getElementById('app');
-appDiv.innerHTML = `<h1>TypeScript Starter</h1>`;
+// Import ts
+import { FormController } from './ts/FormController';
+
+// Main
+const formController = new FormController('triangle-form');

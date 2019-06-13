@@ -1,1 +1,37 @@
-<div id="app"></div>
+<div class="main-wrapper">
+
+  <div class="form-wrapper">
+
+    <h3>Determine triangle type based on edges</h3>
+
+    <form id="triangle-form" action="">
+
+      <fieldset>
+        <label for="side-A">Side A:</label>
+        <input type="number" name="side-A" id="sideA" min="1" max="9007199254740991" placeholder="Enter length in px" required />
+      </fieldset>
+
+      <fieldset>
+        <label for="side-B">Side B:</label>
+        <input type="number" name="side-B" id="sideB" min="1" max="9007199254740991" placeholder="Enter length in px" required />
+      </fieldset>
+
+      <fieldset>
+        <label for="side-C">Side C:</label>
+        <input type="number" name="side-C" id="sideC" min="1" max="9007199254740991" placeholder="Enter length in px" required />
+      </fieldset>
+
+      <fieldset class="buttons">
+        <input type="submit" value="Submit"/>
+        <input type="reset" value="Reset" />
+      </fieldset>
+
+    </form>
+
+  </div> 
+    
+  <br/>
+
+  <div id="results-wrapper"></div>
+
+</div>
