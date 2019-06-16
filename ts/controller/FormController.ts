@@ -5,14 +5,15 @@ export class FormController {
   private formService: FormService;
   private formElement: HTMLFormElement;
 
-  constructor(id) {
+  constructor(id: string) {
     this.formService = new FormService();
+    this.initForm(id);
+  }
+
+  private initForm(id: string): void {
     this.formElement = document.getElementById(id) as HTMLFormElement;
     this.formElement.onsubmit = (e: Event) => this.submit(e);
-    this.formElement.onreset = () => {
-      this.formElement.className = '';
-      
-    }
+    this.formElement.onreset = () => this.resetFormAndCanvas();
   }
 
   private submit(event: Event): void {
@@ -30,6 +31,12 @@ export class FormController {
     }
   }
 
+  private resetFormAndCanvas(): void {
+    this.formElement.className = '';
+    const surface = document.getElementById('results-wrapper');
+    surface.style.display = 'none';
+  }
+
   private parseForm(elements: HTMLFormControlsCollection): TriangleFormData {
     return [].reduce.call(elements, (data, element) => {
       if (element.name) {
@@ -39,7 +46,7 @@ export class FormController {
     }, {});
   }
 
-  private displayError(msg: string) {
+  private displayError(msg: string): void {
     alert(msg);
   }
 }

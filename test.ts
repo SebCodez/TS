@@ -2,4 +2,4 @@
 import './jasmine-setup.ts';
 
 // Import spec files
-import './test/service/FormService.test';
+import './test/service/FormService.test.ts';
