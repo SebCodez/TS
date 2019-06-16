@@ -1,5 +1,5 @@
-
 import { FormService } from './FormService';
+import { TriangleFormData } from './TriangleFormData';
 
 export class FormController {
   private formService: FormService;
@@ -18,10 +18,10 @@ export class FormController {
   private submit(event: Event): void {
     event.preventDefault();
 
-    const jsonForm = this.formToJSON(this.formElement.elements);
+    const formObj: TriangleFormData = this.parseForm(this.formElement.elements);
 
     try {
-      this.formService.submit(jsonForm);
+      this.formService.createShape(formObj);
     } catch (e) {
       this.formElement.className += 'invalid';
       this.displayError(e);
@@ -30,7 +30,7 @@ export class FormController {
     }
   }
 
-  private formToJSON(elements: HTMLFormControlsCollection): JSON {
+  private parseForm(elements: HTMLFormControlsCollection): TriangleFormData {
     return [].reduce.call(elements, (data, element) => {
       if (element.name) {
         data[element.name] = element.value;

@@ -1,12 +1,15 @@
-
 import { IShape } from './IShape';
 import { Triangle } from './Triangle';
+import { TriangleFormData } from './TriangleFormData';
 
 export class FormService {
+  private readonly sideA: string = 'side-A';
+  private readonly sideB: string = 'side-B';
+  private readonly sideC: string = 'side-C';
 
   constructor() {}
 
-  public submit(formData: JSON): void {
+  public createShape(formData: TriangleFormData): void {
     const shape: IShape = this.shapeFactory(formData);
 
     if (shape.validate()) {
@@ -14,13 +17,13 @@ export class FormService {
     }
   }
 
-  private shapeFactory(formData: JSON): IShape {
+  private shapeFactory(formData: TriangleFormData): IShape {
     switch (Object.keys(formData).length) {
       case 3: {
         return new Triangle(
-          formData['side-A'],
-          formData['side-B'],
-          formData['side-C']
+          formData[this.sideA],
+          formData[this.sideB],
+          formData[this.sideC]
         );
       };
     };

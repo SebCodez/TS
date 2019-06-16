@@ -31,7 +31,7 @@ export class Triangle implements ITriangle {
 
     if (this.violatesTriangleInequality()) {
       throw new IllegalArgumentException(
-        "Sum of any two sides must be larger than the remaining side");
+        "Sum of any two sides must be greater than the remaining side");
       return false;
     }
 

@@ -1,9 +1,9 @@
 // Import css
-import './css/style.css';
-import './css/form.css';
+import './css/Style.css';
+import './css/Form.css';
 
 // Import ts
-import { FormController } from './ts/FormController';
+import './ts/Main.ts';
 
-// Main
-const formController = new FormController('triangle-form');
+// Import test
+import './test.ts';

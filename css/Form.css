@@ -8,6 +8,7 @@ fieldset {
 }
 
 /* Fields */
+/* Cross-browser and backwards compatibility considerations */
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
     color:    #aaa;
 }
