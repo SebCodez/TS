@@ -1,4 +1,4 @@
-import { FormController } from './FormController';
+import { FormController } from './controller/FormController';
 
 // Main
 const formController = new FormController('triangle-form');

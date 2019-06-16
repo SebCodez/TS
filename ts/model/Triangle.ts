@@ -1,7 +1,6 @@
-
 import { ITriangle } from './ITriangle';
 import { TriangleType } from './TriangleType';
-import { IllegalArgumentException } from './IllegalArgumentException';
+import { IllegalArgumentException } from '../exception/IllegalArgumentException';
 
 export class Triangle implements ITriangle {
   edgeA: number;

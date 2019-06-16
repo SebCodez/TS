@@ -1,5 +1,5 @@
-import { FormService } from './FormService';
-import { TriangleFormData } from './TriangleFormData';
+import { FormService } from '../service/FormService';
+import { TriangleFormData } from '../model/TriangleFormData';
 
 export class FormController {
   private formService: FormService;

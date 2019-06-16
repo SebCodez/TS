@@ -1,6 +1,6 @@
-import { FormService } from './../ts/FormService';
-import { TriangleFormData } from './../ts/TriangleFormData';
-import { Triangle } from './../ts/Triangle';
+import { FormService } from '../../ts/service/FormService';
+import { TriangleFormData } from '../../ts/model/TriangleFormData';
+import { Triangle } from '../../ts/model/Triangle';
 
 describe('FormService', () => {
   let formService: FormService;

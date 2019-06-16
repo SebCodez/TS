@@ -1,4 +1,3 @@
-
 import { IShape } from './IShape';
 import { Triangle } from './Triangle';
 import { TriangleType } from './TriangleType';

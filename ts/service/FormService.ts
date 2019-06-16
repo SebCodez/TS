@@ -1,6 +1,6 @@
-import { IShape } from './IShape';
-import { Triangle } from './Triangle';
-import { TriangleFormData } from './TriangleFormData';
+import { IShape } from '../model/IShape';
+import { Triangle } from '../model/Triangle';
+import { TriangleFormData } from '../model/TriangleFormData';
 
 export class FormService {
   private readonly sideA: string = 'side-A';
