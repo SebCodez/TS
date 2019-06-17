@@ -16,7 +16,7 @@ describe('FormService', () => {
     formService = new FormService();
   });
 
-  it('should be able to create a shape', () => {
+  it('should be able to create shape and validate', () => {
     // Arrange
     const triangleSpy: jasmine.Spy = spyOn<Triangle>(Triangle.prototype, 'validate');
 
