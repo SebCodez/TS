@@ -18,12 +18,12 @@ describe('FormService', () => {
 
   it('should be able to create a shape', () => {
     // Arrange
-    const triangleSpy = spyOn(Triangle.prototype, 'validate');
+    const triangleSpy: jasmine.Spy = spyOn<Triangle>(Triangle.prototype, 'validate');
 
     // Act
     formService.createShape(formDataMock);
 
     // Assert
-    expect(triangleSpy).toHaveBeenCalledTimes(1);
+    expect(Triangle.prototype.validate).toHaveBeenCalledTimes(1);
   });
 });
