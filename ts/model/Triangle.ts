@@ -22,7 +22,7 @@ export class Triangle implements ITriangle {
   }
 
   public validate(): boolean {
-    if (this.isAnySideTooShort()) {
+    if (this.isAnySideLengthNegative()) {
       throw new IllegalArgumentException(
         "Length of sides cannot be less or equal to zero");
       return false;
@@ -72,7 +72,7 @@ export class Triangle implements ITriangle {
     return TriangleType.SCALENE;
   }
 
-  private isAnySideTooShort(): boolean {
+  private isAnySideLengthNegative(): boolean {
     return this.edgeA <= 0
         || this.edgeB <= 0
         || this.edgeC <= 0;

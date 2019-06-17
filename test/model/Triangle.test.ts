@@ -4,8 +4,10 @@ import { TriangleType } from '../../ts/model/TriangleType';
 import { Triangle } from '../../ts/model/Triangle';
 
 describe('Triangle', () => {
-  const illegalArgsError1 = new IllegalArgumentException(
-        "Length of sides cannot be less or equal to zero");
+  const nonPositiveLengthError = new IllegalArgumentException(
+    "Length of sides cannot be less or equal to zero");
+  const inequalityError = new IllegalArgumentException(
+    "Sum of any two sides must be greater than the remaining side");
 
   const createTriangle = (a: number, b: number, c: number): Triangle => {
     return new Triangle(
@@ -47,8 +49,13 @@ describe('Triangle', () => {
     expect(triangle.getTriangleType()).toBe(TriangleType.SCALENE);
   });
 
-  it('should invalidate based on non-negative rule', () => {
+  it('should invalidate when any edge length <= 0', () => {
     const triangle: Triangle = createTriangle(-1, 1, 2);
-    expect(triangle.validate()).toThrow(illegalArgsError1);
+    expect(() => triangle.validate()).toThrow(nonPositiveLengthError);
+  });
+
+  it('should invalidate when inequality rule is broken', () => {
+    const triangle: Triangle = createTriangle(2, 2, 10);
+    expect(() => triangle.validate()).toThrow(inequalityError);
   });
 });
