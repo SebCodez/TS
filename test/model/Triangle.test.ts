@@ -4,6 +4,8 @@ import { TriangleType } from '../../ts/model/TriangleType';
 import { Triangle } from '../../ts/model/Triangle';
 
 describe('Triangle', () => {
+  const invalidEdgesError = new IllegalArgumentException(
+    "Invalid edges");
   const nonPositiveLengthError = new IllegalArgumentException(
     "Length of sides cannot be less or equal to zero");
   const inequalityError = new IllegalArgumentException(
@@ -49,13 +51,35 @@ describe('Triangle', () => {
     expect(triangle.getTriangleType()).toBe(TriangleType.SCALENE);
   });
 
-  it('should invalidate when any edge length <= 0', () => {
+  it('should invalidate when edge A length <= 0', () => {
     const triangle: Triangle = createTriangle(-1, 1, 2);
+    expect(() => triangle.validate()).toThrow(nonPositiveLengthError);
+  });
+
+  it('should invalidate when edge B length <= 0', () => {
+    const triangle: Triangle = createTriangle(1, -1, 2);
+    expect(() => triangle.validate()).toThrow(nonPositiveLengthError);
+  });
+
+  it('should invalidate when edge C length <= 0', () => {
+    const triangle: Triangle = createTriangle(-1, 1, -2);
     expect(() => triangle.validate()).toThrow(nonPositiveLengthError);
   });
 
   it('should invalidate when inequality rule is broken', () => {
     const triangle: Triangle = createTriangle(2, 2, 10);
     expect(() => triangle.validate()).toThrow(inequalityError);
+  });
+
+  it('should check edge A max length', () => {
+    expect(() => createTriangle(9007199254740992, 2, 2)).toThrow(invalidEdgesError);
+  });
+  
+  it('should check edge B max length', () => {
+    expect(() => createTriangle(2, 9007199254740992, 2)).toThrow(invalidEdgesError);
+  });
+
+  it('should check edge C max length', () => {
+    expect(() => createTriangle(2, 2, 9007199254740992)).toThrow(invalidEdgesError);
   });
 });

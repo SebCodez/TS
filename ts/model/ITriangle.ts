@@ -7,5 +7,5 @@ export interface ITriangle extends IShape {
   edgeB: Number;
   edgeC: Number;
 
-  getTriangleType(triangle: Triangle): TriangleType;
+  getTriangleType(): TriangleType;
 }

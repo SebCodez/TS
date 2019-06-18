@@ -16,8 +16,13 @@ export class Triangle implements ITriangle {
     this.edgeC = Number(c);
 
     if (!(this.edgeA && this.edgeB && this.edgeC)) {
-      throw new IllegalArgumentException(
-        "Invalid edges");
+      throw new IllegalArgumentException("Invalid edges");
+    }
+
+    if (this.edgeA > 9007199254740991
+      || this.edgeB > 9007199254740991
+      || this.edgeC > 9007199254740991) {
+      throw new IllegalArgumentException("Invalid edges");
     }
   }
 
